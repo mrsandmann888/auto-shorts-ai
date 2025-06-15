@@ -1,0 +1,17 @@
+{
+  "name": "auto-shorts-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "stripe": "^12.0.0",
+    "axios": "^1.6.0"
+  }
+}
