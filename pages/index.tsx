@@ -12,11 +12,15 @@ export default function Home() {
     setResult(data); setLoading(false);
   };
 
-  const subscribe = async (plan: 'creator'|'agency') => {
-    const r = await fetch('/api/create-checkout-session', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ plan })});
-    const { url } = await r.json(); window.location.href = url;
-  };
-
+ const subscribe = async (plan: 'creator' | 'agency') => {
+  const r = await fetch('/api/create-checkout-session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ plan })
+  });
+  const { url } = await r.json();
+  window.location.href = url;
+};
   return (
     <main style={{padding:40,maxWidth:600,margin:'auto',fontFamily:'sans-serif'}}>
       <h1>Auto‑Shorts AI</h1>
@@ -26,8 +30,8 @@ export default function Home() {
         <button style={{marginTop:12}} disabled={loading}>{loading?'Processing…':'Generate Shorts'}</button>
       </form>
       <div style={{marginTop:20,display:'flex',gap:10}}>
-        <button onClick={()=>subscribe('creator')}>Creator $59/mo</button>
-        <button onClick={()=>subscribe('agency')}>Agency $199/mo</button>
+        <button onClick={() => subscribe('creator')}>Creator $59/mo</button>
+<button onClick={() => subscribe('agency')}>Agency $199/mo</button>
       </div>
       {result && <pre style={{background:'#eee',padding:16,marginTop:24}}>{JSON.stringify(result,null,2)}</pre>}
     </main>
